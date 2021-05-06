@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" />
+    <title>
+        Fx 高校学生综合服务平台 学生工作管理系统 学生请假
+    </title>
+    <meta http-equiv="keywords" content="学生工作,综合服务,服务平台,信息系统,管理系统,swis" />
+    <meta http-equiv="author" content="华南师范大学,唐小煜,beaming@qq.com" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style>
+        /*�測��晀鱈存単�湛�遜*/
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 8px;
+            /* table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-word; */
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #E1E2E6;
+        }
+
+        tr {
+            height: 40px;
+            line-height: 26px;
+            white-space: nowrap;
+        }
+
+        tr:nth-child(even) td {
+            background: #FFFFFF;
+        }
+
+        tr:nth-child(odd) td {
+            background: #F4F9F8;
+        }
+
+        th {
+            line-height: 30px;
+            background-color: #E4EEED;
+            color: #135D57;
+            font-weight: normal;
+            text-align: center;
+            text-align-last: center;
+            white-space: nowrap;
+        }
+
+        th a {
+            color: #135D57 !important;
+        }
+
+        th a:hover {
+            color: #5AC1C5;
+        }
+
+        th #user_pic {
+            float: none;
+            text-align: center;
+            text-align-last: center;
+        }
+
+        th[colspan="7"] {
+            background-color: #8DD2CC;
+            color: #FFF;
+            text-align: left;
+            text-align-last: left;
+            line-height: 32px;
+            padding: 0;
+        }
+
+        th[colspan="7"] span {
+            padding-left: 16px;
+            padding-right: 30px;
+            background: url('https://ssp.scnu.edu.cn/images/bg_nav_icon.png') no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+            left: -10px;
+        }
+
+        td {
+            background-color: #FFF;
+            color: #333;
+            padding-left: 20px;
+            height: 40px;
+            font-size: 14px;
+            padding: 2px 24px;
+            white-space: nowrap;
+
+        }
+
+        td a {
+            color: #237BF0 !important;
+        }
+
+        .pagerstyle td,
+        .pagerstyle tr {
+            border: 1px solid #FFF;
+            text-align: center;
+            text-align-last: center;
+        }
+
+        .pagerstyle table td {
+            display: inline-block;
+            padding: 0;
+            border: 0;
+            background-color: #FFF;
+            margin-top: 10px;
+        }
+
+        .pagerstyle td a,
+        .pagerstyle td span {
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 20px;
+            font-size: 16px;
+            color: #333 !important;
+        }
+
+        .pagerstyle td a:hover {
+            background: #EBF8F4;
+        }
+
+        .pagerstyle td span {
+            background: #E4EEED;
+        }
+
+        @media only screen and (max-device-width: 500px) {
+
+            tr:nth-child(odd) td {
+                background: #E8F0FA
+            }
+
+            tr:nth-child(even) td {
+                background: #FAF5FE;
+            }
+
+            td {
+                font-size: 20px;
+                padding: 20px 0;
+                white-space: normal
+            }
+        }
+
+        input[type="text"],
+        input[type='password'],
+        select,
+        textarea {
+            border: 2px solid #E5E5E5;
+        }
+
+        input[type="text"],
+        input[type="submit"],
+        input[type='password'],
+        input[type="checkbox"],
+        select,
+        textarea {
+            border-radius: 4px;
+        }
+
+        input[type="text"],
+        input[type='password'],
+        select,
+        textarea {
+            padding-left: 14px;
+        }
+
+        /*氓鈥βヂ扁偓猫戮鈥溍モ€βッβ♀€犆捌捗︹€⒙�*/
+        input[type="text"],
+        input[type='password'] {
+            width: 140px;
+            height: 32px;
+            line-height: 32px;
+        }
+
+        input[type="submit"] {
+            background-color: #567FE6;
+            color: #FFF;
+            width: 100px;
+            height: 32px;
+            line-height: 32px;
+            border: none;
+            font-size: 18px;
+            text-align: center;
+            text-align-last: center;
+        }
+
+        #cph_r_expand_showcs {
+            width: 86px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        input[type='checkbox'] {
+            width: 17px;
+            height: 17px;
+            background-color: #fff;
+            border: 1px solid #c9c9c9;
+            border-radius: 2px;
+            outline: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+        }
+
+        input[type='checkbox']+label {
+            font-size: 16px;
+            position: relative;
+            top: -2px;
+            left: 5px;
+        }
+
+        input[type='checkbox']:checked {
+            color: #567FE6;
+            background: #567FE6 url("https://ssp.scnu.edu.cn/images/checkbox_icon.png")no-repeat center;
+            transition: none;
+            border: none;
+            border-radius: 2px;
+            outline: none;
+        }
+
+        input[type='checkbox']:disabled {
+            background-color: #ddd;
+            border: 1px solid #c9c9c9;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        input[type="radio"]+label::before {
+            content: "\a0";
+            /*脗虏脗禄脗禄脗禄脙聬脙聬脗驴脙鈥⒚偮该兟�*/
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 16px;
+            width: .8em;
+            height: .8em;
+            margin-right: .4em;
+            border-radius: 50%;
+            border: 1px solid #26988F;
+            text-indent: .15em;
+            line-height: 1;
+        }
+
+        input[type="radio"]:disabled+label::before {
+            content: "\a0";
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 16px;
+            width: .8em;
+            height: .8em;
+            height: 40px;
+            margin-right: .4em;
+            border-radius: 50%;
+            border: 2px solid #c9c9c9;
+            background: #ddd;
+            text-indent: .15em;
+            line-height: 1;
+        }
+
+        input[type="radio"]:checked+label::before {
+            background: url("../images/radio_icon.png") no-repeat center;
+            background-size: 100%;
+            width: .8em;
+            height: .8em;
+        }
+
+        input[type="radio"] {
+            position: relative;
+            left: 17px;
+            top: 3px;
+            opacity: 0;
+        }
+
+        /*氓鈥βヂ扁偓猫戮鈥溍モ€βッβ♀€犆捌捗︹€⒙�*/
+        /*忙炉鈥澝酒抜nput 氓庐陆20茅芦藴4*/
+        select {
+            width: 160px;
+            height: 36px;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            background-image: url('../images/bg_select.png');
+            background-repeat: no-repeat;
+            background-position: 136px center;
+        }
+
+        select::-ms-expand {
+            display: none;
+        }
+
+        textarea {
+            width: 400px;
+            height: 60px;
+        }
+
+
+
+        /*猫隆篓氓聧鈥⒚ぢ嘎♀€灻ε铰ぢ宦睹ヂ矫ヂ郝γモ€βヂ扁偓猫掳茠忙鈥⒙�*/
+        dl {
+            margin-top: 5px;
+        }
+
+        dl input[type="text"],
+        dl input[type='password'] {
+            width: 220px;
+        }
+
+        dl input[type="submit"] {
+            width: 150px;
+        }
+
+        dl select {
+            width: 240px;
+            background-position: 216px center;
+        }
+
+        dl textarea {
+            width: 400px;
+            height: 120px;
+        }
+
+
+        .right_form dt {
+            width: 280px;
+            padding-right: 10px;
+            text-align: right;
+            text-align-last: right;
+            font-weight: bold;
+        }
+
+        .right_form dt span {
+            display: block;
+            font-weight: normal;
+            font-size: 14px;
+        }
+
+        .right_form dd span,
+        .margin_top15 dd span {
+            color: #666;
+        }
+
+        .right_form dd span.msgstr,
+        .margin_top15 dd span.msgstr {
+            color: red;
+        }
+
+        .margin_top15 dt {
+            display: inline-block;
+            padding-right: 10px;
+            width: auto;
+            text-align: left;
+            text-align-last: left;
+        }
+
+        .margin_top15 dd {
+            display: inline-block;
+        }
+
+        .margin_top15 dt a {
+            color: #0079AC;
+        }
+
+        #cph_right_right_index dt {
+            color: #26988F;
+            border-right: 1px solid #26988F;
+        }
+
+        #cph_right_right_index p,
+        #cph_right_right_index span {
+            display: inline-block;
+            margin: 0;
+        }
+
+        @media only screen and (max-device-width: 500px) {
+
+            dl textarea {
+                width: 625px;
+                height: 131px;
+                margin-left: 75px;
+            }
+
+            .right_form dl dt {
+                font-size: 30px;
+                text-align: left;
+                text-align-last: left;
+                border-left: 8px solid #567FE6;
+                padding-left: 10px;
+                margin-left: 63px;
+                width: 100%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            #cph_right_e_msg,
+            #cph_right_e_cidate,
+            #cph_right_e_yddh {
+                color: #333;
+                margin-left: 75px;
+                font-size: 30px;
+            }
+
+            #cph_right_e_atschool,
+            #cph_right_e_health,
+            #cph_right_e_iskeyperson,
+            #cph_right_e_observation {
+                margin-left: 75px;
+                width: 500px;
+            }
+
+            input[type="radio"]+label::before,
+            input[type="radio"]:checked+label::before {
+                width: 30px;
+                height: 30px
+            }
+
+            dl input[type="text"] {
+                width: 625px;
+                height: 65px;
+                font-size: 30px;
+                margin-left: 75px;
+            }
+
+            .right_form select {
+                width: 625px;
+                height: 65px;
+                margin-left: 75px;
+                font-size: 30px;
+            }
+
+            .right_form select option {
+                font-size: 10px;
+            }
+
+            .right_form dd #cph_right_e_yxnj {
+                font-size: 30px;
+                margin-left: 75px;
+                display: flow-root
+            }
+
+            .right_form dd span {
+                font-size: 30px;
+                margin-left: 75px;
+            }
+
+            #cph_right_e_health td {
+                font-size: 30px;
+            }
+
+            input[type='checkbox'] {
+                width: 40px;
+                height: 40px;
+                margin-left: 60px;
+            }
+
+            input[type='checkbox']+label {
+                font-size: 30px;
+                position: relative;
+                top: 0px;
+                left: 5px;
+            }
+
+            dl #cph_right_e_submit {
+                width: 257px;
+                height: 78px;
+                font-size: 44px;
+                left: 60%;
+                position: absolute;
+                transform: translateX(-50%);
+            }
+
+            dl #cph_right_e_delete {
+                width: 257px;
+                height: 78px;
+                font-size: 44px;
+                left: 30%;
+                position: absolute;
+                transform: translateX(-50%);
+            }
+
+            .rightgrid {
+                margin-bottom: 70px;
+            }
+
+            .linkpanel {
+                height: 50px
+            }
+
+            #cph_r_expand_pn_go {
+                background-color: #567FE6;
+                color: #FFF;
+                width: 130px;
+                height: 36px;
+                line-height: 36px;
+                border: none;
+                font-size: 30px;
+                text-align: center;
+                text-align-last: center;
+                border-radius: 4px;
+                padding: 12px 40px;
+                position: absolute;
+                right: 330px;
+            }
+
+
+            #cph_r_expand_pn_back {
+                background-color: #567FE6;
+                color: #FFF;
+                width: 130px;
+                height: 36px;
+                line-height: 36px;
+                border: none;
+                font-size: 30px;
+                text-align: center;
+                text-align-last: center;
+                border-radius: 4px;
+                padding: 12px 40px;
+                position: absolute;
+                right: 90px;
+            }
+
+            input[type="file"i] {
+                -webkit-appearance: initial;
+                background-color: initial;
+                cursor: default;
+                align-items: baseline;
+                color: inherit;
+                text-align: start !important;
+                padding: initial;
+                border: initial;
+                margin-left: 70px;
+            }
+
+            dl input[type='password'] {
+                width: 220px;
+                margin-left: 60px;
+            }
+        }
+
+
+        .sqbtable span {
+            word-break: normal;
+            width: auto;
+            display: block;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow: hidden;
+            max-width: 563px;
+        }
+
+        .main_right {
+            width: 82%;
+            float: right;
+            background-color: #FFF;
+            margin-bottom: 40px;
+            text-align: left;
+            text-align-last: left;
+        }
+
+        @media (max-width: 1206px) {
+            .main_right {
+                width: 70% !important;
+                float: none;
+            }
+        }
+
+        @media only screen and (max-device-width: 500px) {
+
+            /* 絨鋋�膈�篋�500px�駈���絎劫��羯� */
+            .main_right {
+                width: 95% !important;
+            }
+        }
+
+        .rightgrid {
+            padding: 20px 30px 30px 30px;
+            line-height: 1.8em;
+        }
+
+        .posts_title {
+            font-weight: bold;
+            font-size: 22px;
+            color: #26988F;
+        }
+
+        .posts_vtitle {
+            font-weight: normal;
+            color: #898989;
+            font-size: 14px;
+        }
+
+        .posts_content,
+        .right_content,
+        .right_form {
+            border-top: 4px solid #44A79F;
+            padding-top: 30px;
+        }
+
+        .posts_content p {
+            text-indent: 2em;
+            line-height: 32px;
+        }
+
+        .posts_content b {
+            font-weight: bold;
+        }
+
+        .right_form {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .right_form h3 {
+            height: 34px;
+            line-height: 34px;
+            background-color: #F6FCFA;
+            font-weight: normal;
+            font-size: 16px;
+            padding: 0;
+        }
+
+        .right_form h3 span {
+            display: inline-block;
+            padding-left: 16px;
+            padding-right: 20px;
+            background: url('../images/bg_trh2_icon.png') no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .right_apps {
+            /*text-align: center;*/
+        }
+
+        .right_apps ul {
+            font-size: 0;
+        }
+
+        .right_apps li {
+            width: 16%;
+            background-color: #567FE6;
+            text-align: center;
+            text-align-last: center;
+            font-size: 16px;
+            margin: 20px 2% 10px 2%;
+            /*margin-bottom: 20px;*/
+        }
+
+        .right_apps li:hover {
+            background-color: #5E5FDB;
+        }
+
+        .right_apps a {
+            display: block;
+            padding: 20px 8px 20px 8px;
+            color: #FFF;
+        }
+
+        .container {
+            margin: 0px auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .grid1of4 {
+            width: 35%;
+        }
+
+        .grid2of4 {
+            width: 63%;
+        }
+
+        .grid3of4 {
+            width: 92%;
+        }
+
+        .grant {
+            width: 1%;
+        }
+
+        .go_away {
+            width: 1%;
+        }
+
+        @media all and (min-width:1650px) {
+            .container {
+                width: 1650px;
+            }
+        }
+
+        @media all and (max-width:1210px) and (min-width:831px) {
+            .colorul ul li {
+                width: 35%;
+                margin-top: 8px;
+                display: block;
+            }
+
+            .colorul a {
+                padding-top: 8px;
+                padding-bottom: 8px;
+            }
+
+            .grid_signin {
+                top: 0px;
+                width: 63%;
+                right: 0px;
+                position: absolute;
+            }
+
+            .grid_process {
+                width: 100%;
+            }
+        }
+
+        @media all and (max-width:1210px) {
+            .bg_grant a {
+                background: url("../images/grant_icon_orange.png") no-repeat 16px 17px rgb(255, 255, 255);
+            }
+
+            .bg_health a {
+                background: url("../images/health_icon_orange.png") no-repeat 18px 16px rgb(255, 255, 255);
+            }
+
+            .bg_stay a {
+                background: url("../images/stay_icon_orange.png") no-repeat 20px 15px rgb(255, 255, 255);
+            }
+
+            .bg_work a {
+                background: url("../images/work_icon_orange.png") no-repeat 20px 17px rgb(255, 255, 255);
+            }
+        }
+
+        @media all and (max-width:830px) {
+            .colorul li {
+                width: 100%;
+                margin-bottom: 8px;
+                display: table;
+            }
+
+            .colorul a {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            .grid_signin {
+                width: 100%;
+                margin-bottom: 20px;
+                display: table;
+            }
+
+            .grid_process {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            .colorul {
+                margin-bottom: 40px;
+            }
+
+            .grant {
+                width: 100%;
+                display: table;
+            }
+
+            .go_away {
+                width: 100%;
+                display: table;
+            }
+
+            .grant {
+                border: currentColor;
+                border-image: none;
+                margin-bottom: 20px;
+            }
+
+            .copy {
+                font-size: 13px;
+            }
+
+            .leftgrid {
+                display: none;
+            }
+
+            .main_right {
+                width: 100%;
+                float: none;
+            }
+        }
+
+
+        @media all and (max-width:1360px) {
+            .grant {
+                font-size: 15px;
+            }
+
+            .go_away {
+                font-size: 15px;
+            }
+
+            .grid_signin li {
+                font-size: 15px;
+            }
+
+            .colorul a {
+                font-size: 18px;
+            }
+
+            .copy {
+                font-size: 15px;
+            }
+        }
+
+        @media all and (max-width:1130px) {
+            .menu>li {
+                font-size: 15px;
+            }
+
+            .menu li a {
+                padding: 0px 12px;
+            }
+
+            .menu li ul a {
+                font-size: 14px;
+            }
+
+            nav {
+                min-height: 60px;
+            }
+
+            .menu>li {
+                min-height: 60px;
+            }
+
+            .menu li a {
+                margin-top: 12px;
+            }
+
+            .menu ul {
+                margin-top: 12px;
+            }
+
+            .menu ul {
+                min-width: 86px;
+            }
+
+            .menu .fx a {
+                padding-right: 10px;
+                padding-left: 20px;
+            }
+        }
+
+        @media all and (max-width:500px) {
+            .container {
+                width: 500px;
+            }
+        }
+
+        /* @media all and (min-device-width:600px) {
+	.grid3of4 {
+		min-width: 1095px;
+	}
+} */
+        .logo,
+        .logined_logo {
+            position: absolute;
+            left: 60px;
+        }
+
+        .logo {
+            width: 210px;
+            height: 100px;
+            top: 35px;
+        }
+
+        .logined_logo {
+            width: 168px;
+            height: 80px;
+            top: 20px;
+        }
+
+        .scnu_service,
+        .logined_service {}
+
+        @media all and (max-width:980px) {
+
+            .scnu_service,
+            .logined_service {
+                position: relative !important;
+                left: 17% !important;
+            }
+        }
+
+        .scnu_service {
+            line-height: 180px;
+        }
+
+        .logined_service {
+            line-height: 120px;
+        }
+
+        .grid_sys_index {
+            display: none;
+        }
+
+        .grid_sys .submit_unified {
+            border-radius: 30px;
+            border: 2px solid rgb(255, 255, 255);
+            border-image: none;
+            width: 17%;
+            color: rgba(223, 107, 32, 1);
+            line-height: 44px;
+            font-size: 20px;
+            margin-right: 5%;
+            margin-bottom: 24px;
+            display: none;
+            min-width: 220px;
+            box-shadow: 2px 0px 8px rgba(220, 220, 220, 1);
+            background-color: rgb(255, 255, 255);
+        }
+
+        .grid_sys span {
+            display: none;
+        }
+
+        #ctl00_cph_default_Button1 {
+            background: rgba(255, 255, 255, 0);
+            border-radius: 30px;
+            border: 2px solid rgb(255, 255, 255);
+            border-image: none;
+            width: 11%;
+            color: rgba(255, 255, 255, 1);
+            line-height: 44px;
+            font-size: 20px;
+            display: none;
+            min-width: 135px;
+        }
+
+        #login_local {
+            background: rgba(255, 255, 255, 0);
+            border-radius: 30px;
+            border: 2px solid rgb(255, 255, 255);
+            border-image: none;
+            width: 11%;
+            color: rgba(255, 255, 255, 1);
+            line-height: 44px;
+            font-size: 20px;
+            display: none;
+            min-width: 135px;
+        }
+
+        .submit_local {
+            background: rgba(255, 255, 255, 0);
+            border-radius: 30px;
+            border: 2px solid rgb(255, 255, 255);
+            border-image: none;
+            width: 11%;
+            color: rgba(255, 255, 255, 1);
+            line-height: 44px;
+            font-size: 20px;
+            display: none;
+            min-width: 135px;
+        }
+
+        #ctl00_cph_default_Button1 {
+            height: 48px;
+        }
+
+        .service {
+            width: 436px;
+            height: 40px;
+        }
+
+        #ctl00_cph_default_grid_login {
+            top: 100px;
+            width: 200px;
+            display: none;
+            position: absolute;
+        }
+
+        #ctl00_cph_default_grid_myinf {
+            display: none;
+        }
+
+        .signin_form .submit {
+            display: none;
+        }
+
+        #ctl00_cph_default_logout {
+            top: 19px;
+            right: 14px;
+            color: rgb(120, 120, 120);
+            display: inline;
+            position: absolute;
+        }
+
+        #ctl00_logout {
+            top: 19px;
+            right: 14px;
+            color: rgb(120, 120, 120);
+            display: inline;
+            position: absolute;
+        }
+
+        .colorul {
+            margin-bottom: 40px;
+        }
+
+        .colorul ul {
+            text-align: justify;
+            text-align-last: justify;
+        }
+
+        .colorul li {
+            width: 24%;
+            font-size: 20px;
+        }
+
+        .colorul a {
+            border: 2px solid rgb(255, 255, 255);
+            border-image: none;
+            text-align: left;
+            color: rgb(102, 102, 102);
+            padding-top: 24px;
+            padding-bottom: 24px;
+            padding-left: 70px;
+            display: block;
+            text-align: left;
+            text-align-last: left;
+        }
+
+        .bg_grant a {
+            background: url("../images/grant_icon_orange.png") no-repeat 16px 32px rgb(255, 255, 255);
+        }
+
+        .bg_health a {
+            background: url("../images/health_icon_orange.png") no-repeat 18px 30px rgb(255, 255, 255);
+        }
+
+        .bg_stay a {
+            background: url("../images/stay_icon_orange.png") no-repeat 20px 28px rgb(255, 255, 255);
+        }
+
+        .bg_work a {
+            background: url("../images/work_icon_orange.png") no-repeat 20px 30px rgb(255, 255, 255);
+        }
+
+        .colorul li:hover a {
+            border: 2px solid rgb(55, 171, 172);
+            border-image: none;
+            color: rgb(55, 171, 172);
+        }
+
+        .bg_grant:hover a {
+            background-image: url("../images/grant_icon_green.png");
+        }
+
+        .bg_health:hover a {
+            background-image: url("../images/health_icon_green.png");
+        }
+
+        .bg_stay:hover a {
+            background-image: url("../images/stay_icon_green.png");
+        }
+
+        .bg_work:hover a {
+            background-image: url("../images/work_icon_green.png");
+        }
+
+        .colorul a:hover span {
+            color: rgb(55, 171, 172);
+        }
+
+        .colorul span {
+            margin: 0px;
+            color: rgb(153, 153, 153);
+            padding-top: 10px;
+            font-size: 14px;
+            display: block;
+        }
+
+        .grid_signin {
+            text-align: left;
+            float: left;
+            -ms-text-align-last: left;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .grid_signin h2 {
+            margin: 0px auto 20px;
+            top: -19px;
+            color: rgb(255, 255, 255);
+            line-height: 28px;
+            font-size: 20px;
+            font-weight: normal;
+            display: table;
+            position: relative;
+            background-image: url("../images/bg_title_icon.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .grid_process h2 {
+            margin: 0px auto 20px;
+            top: -19px;
+            color: rgb(255, 255, 255);
+            line-height: 28px;
+            font-size: 20px;
+            font-weight: normal;
+            display: table;
+            position: relative;
+            background-image: url("../images/bg_title_icon.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .grid_signin h2 {
+            padding: 5px 16px 6px 15px;
+        }
+
+        .grid_process h2 {
+            padding: 5px 28px 6px 25px;
+        }
+
+        .grid_signin h2 span {
+            display: none;
+        }
+
+        .grid_signin ul {
+            padding-right: 30px;
+            padding-bottom: 15px;
+            padding-left: 35px;
+            font-size: 16px;
+            min-height: 223px;
+        }
+
+        .grid_signin li {
+            line-height: 30px;
+        }
+
+        .grid_signin a {
+            color: rgb(0, 121, 172);
+        }
+
+        .grid_signin span {
+            color: rgb(51, 51, 51);
+        }
+
+        .grid_process {
+            text-align: left;
+            padding-bottom: 15px;
+            float: right;
+            -ms-text-align-last: left;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .grant {
+            height: 223px;
+            display: table-cell;
+        }
+
+        .go_away {
+            height: 223px;
+            display: table-cell;
+        }
+
+        .grant h3 {
+            top: 48px;
+            width: 20px;
+            color: rgb(223, 107, 32);
+            letter-spacing: 20px;
+            font-size: 20px;
+            margin-right: 10px;
+            margin-left: 30px;
+            position: relative;
+            -ms-word-wrap: break-word;
+        }
+
+        .go_away h3 {
+            top: 48px;
+            width: 20px;
+            color: rgb(223, 107, 32);
+            letter-spacing: 20px;
+            font-size: 20px;
+            margin-right: 10px;
+            margin-left: 30px;
+            position: relative;
+            -ms-word-wrap: break-word;
+        }
+
+        .grant li {
+            list-style: decimal inside;
+            line-height: 30px;
+            text-align: left;
+            text-align-last: left;
+        }
+
+        .go_away li {
+            list-style: decimal inside;
+            line-height: 30px;
+            text-align: left;
+            text-align-last: left;
+        }
+
+        .grant {
+            border-right-color: rgb(210, 210, 210);
+            border-right-width: 1px;
+            border-right-style: solid;
+        }
+
+        .content {
+            margin: 0px auto 20px;
+            text-align: justify;
+            position: relative;
+            -ms-text-align-last: justify;
+        }
+
+        .main_content {
+            margin: 0px auto;
+        }
+
+        .leftgrid {
+            float: left;
+            margin-bottom: 20px;
+        }
+
+        .left_menu li {
+            height: 42px;
+            margin-bottom: -1px;
+            max-width: 220px;
+        }
+
+        .left_menu a {
+            border: 1px solid rgb(223, 223, 223);
+            border-image: none;
+            color: rgb(86, 86, 86);
+            line-height: 42px;
+            font-size: 16px;
+            display: block;
+            background-color: rgb(255, 255, 255);
+            padding: 0 20px;
+        }
+
+        .left_menu a:hover {
+            border: currentColor;
+            border-image: none;
+            color: rgb(255, 255, 255);
+            background-image: url("https://ssp.scnu.edu.cn/images/bg_nav_icon.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-color: rgb(244, 248, 247);
+        }
+
+        .left_menu li.sel a {
+            border: currentColor;
+            border-image: none;
+            color: rgb(255, 255, 255);
+            background-image: url("https://ssp.scnu.edu.cn/images/bg_nav_icon.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-color: rgb(244, 248, 247);
+        }
+
+        @media only screen and (max-device-width: 500px) {
+
+            /* 灏忎簬绛変簬500px鏃讹紝娑堝け宸﹁竟鏍� */
+            .left_menu {
+                display: none;
+            }
+
+            .grid_obj {
+                display: flex;
+            }
+
+            .grid_obj>div {
+                display: flex;
+            }
+
+            .right_expand a {}
+
+            .leftgrid {
+                /*width: 16%;*/
+                float: none;
+            }
+        }
+
+
+        #ctl00_grid_obj {
+            position: relative;
+            right: 5px;
+            margin-bottom: 10px;
+            width: 220px;
+        }
+
+        #ctl00_obj_key {
+            padding-left: 10px;
+            width: 160px;
+            margin-bottom: 4px;
+        }
+
+        #ctl00_obj_sel {
+            width: 174px;
+        }
+
+        /*瓒呯寮€鏀惧悗淇鐨勬牱寮�*/
+        .r_bottom {
+            margin-top: 10px;
+        }
+
+        .right_expand {
+            margin-bottom: 10px;
+        }
+
+
+        #ctl00_cph_r_expand_sc_submit input[type="submit"],
+        /*鍞愬鍔犲鎻愪氦鎸夐挳鐨勯檺瀹� 20200222*/
+        #ctl00_cph_r_expand_VacAdd,
+        #ctl00_cph_r_expand_sel_submit,
+        #ctl00_cph_r_expand_pn_sub,
+        #ctl00_cph_r_expand_sc_delall,
+        .right_expand a,
+        #ctl00_cph_right_prt,
+        #ctl00_cph_right_exp {
+            background-color: #567FE6;
+            color: #FFF;
+            width: 100px;
+            height: 36px;
+            line-height: 36px;
+            border: none;
+            font-size: 18px;
+            text-align: center;
+            text-align-last: center;
+            border-radius: 4px;
+            padding: 7px 28px;
+        }
+
+        /*鍞愭坊鍔� 20200222*/
+        .right_expand a {
+            display: inline-block;
+            width: auto;
+            height: auto;
+            line-height: 28px;
+            padding: 4px 8px;
+        }
+
+        /*鍞愭坊鍔� 20200222*/
+        .right_expand input,
+        .right_expand select,
+        .right_expand a {
+            margin-bottom: 3px;
+        }
+
+        .right_expand input[type="submit"] {
+            padding: 0 !important;
+        }
+
+        .r_expand {
+            text-align: left;
+            text-align-last: left;
+        }
+
+        #ctl00_cph_right_gv1 a,
+        #ctl00_cph_right_gv a {
+            color: #2D78B1;
+        }
+
+        #ctl00_cph_right_gv1 a:hover,
+        #ctl00_cph_right_gv a:hover {
+            color: #26988F;
+            text-decoration: underline;
+        }
+
+        #ctl00_cph_right_myapps {
+            text-align: left;
+            text-align-last: left
+        }
+
+        #ctl00_cph_right_myapps li {
+            text-align: center;
+            text-align-last: center;
+        }
+
+        .linkpanel,
+        .r_panel_nav {
+            text-align: right;
+            text-align-last: right;
+        }
+
+        /* 
+    涓轰粈涔堜細杩欒繖鏍蜂竴娈典唬鐮佸憿
+    a[href="opt_rc_zdgl.aspx?key=JMOScAf1byTdCo9x"] {
+    display: inline;
+    padding: 7px 28px;
+}*/
+        .grid_sys {
+            position: relative;
+            background: #F3F4F6 url('https://ssp.scnu.edu.cn/images/banner.png') no-repeat center;
+            background-size: 100% 100%;
+            margin-bottom: 30px;
+        }
+
+        body,
+        ul,
+        ol,
+        li,
+        p,
+        h1,
+        h2,
+        h3,
+        dl,
+        dt,
+        dd,
+        form,
+        input,
+        button,
+        a,
+        span {
+            padding: 0;
+            margin: 0;
+            font-family: "Microsoft YaHei", SimSun, serif;
+            outline: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: none;
+        }
+
+        a,
+        a:hover,
+        a:active,
+        a:link,
+        a:visited {
+            text-decoration: none;
+            color: #000;
+        }
+
+        body {
+            font-size: 16px;
+            background-color: #F4F8F7;
+            color: #333;
+        }
+
+        .msgstr {
+            color: red;
+        }
+
+        #footright,
+        .footleft,
+        .menu>li,
+        .grid_sys a,
+        #ctl00_cph_default_Button1,
+        .colorul ul li,
+        .grant h3,
+        .grant ol,
+        .go_away ol,
+        .go_away h3,
+        th[colspan="7"] span,
+        .right_form dt,
+        .right_form dd,
+        .margin_top15 dt,
+        .margin_top15 dd,
+        .grid_sys .logined_logo,
+        .right_apps li,
+        .grid_sys .logined_service,
+        .menu .login_info a,
+        .form_info>h1 {
+            letter-spacing: normal;
+            word-spacing: normal;
+            vertical-align: top;
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+        }
+
+        nav {
+            background-color: #FFF;
+            min-height: 60px;
+        }
+
+        .menu {
+            text-align: left;
+            text-align-last: left;
+            font-size: 0;
+        }
+
+        .menu>li {
+            font-size: 16px;
+            min-height: 60px;
+            margin-left: -1px;
+        }
+
+        .menu li a {
+            display: block;
+            line-height: 36px;
+            padding: 0 18px;
+            margin-top: 12px;
+            border-left: 1px solid #DFDFDF;
+            color: #565656;
+        }
+
+        .menu .fx a {
+            border: none;
+            padding-left: 55px;
+            padding-right: 30px;
+        }
+
+        .fx img {
+            vertical-align: middle;
+        }
+
+        .menu .color1>a {
+            color: rgba(38, 152, 143, 1);
+            border: none;
+        }
+
+        .menu li:hover {
+            background-color: #C2EDFD;
+        }
+
+        .menu .login_info {
+            float: right;
+            padding-right: 56px;
+            font-size: 16px;
+        }
+
+        .menu .login_info:hover {
+            background-color: #FFF;
+        }
+
+        .menu .login_info a {
+            padding: 0 2px;
+            border: none;
+            color: #EA8542;
+        }
+
+        .login_info img {
+            vertical-align: middle;
+        }
+
+        .menu .login_info .submit2 {
+            color: #787878;
+        }
+
+        .menu ul {
+            display: none;
+            background: #FFF;
+            border: 1px solid #DFDFDF;
+            position: absolute;
+            margin-top: 12px;
+            z-index: 5;
+            margin-left: -1px;
+            min-width: 103px;
+        }
+
+        .menu li ul a {
+            font-size: 15px;
+            color: #565656;
+            line-height: 45px;
+            margin: 0;
+        }
+
+        .menu ul li a:hover {
+            color: #26988F;
+            background-color: #C2EDFD;
+        }
+
+        .menu li:hover>ul {
+            display: block;
+            border: none;
+        }
+
+        .copy {
+            background-color: #567FE6;
+            min-height: 100px;
+            color: #FFF;
+            margin-top: 10px;
+        }
+
+        #footright {
+            text-align: left;
+            text-align-last: left;
+            padding-top: 17px;
+            padding-left: 10px;
+            font-size: 13px;
+        }
+
+        #footright span {
+            line-height: 22px;
+        }
+
+        #footright a {
+            color: #FDD5AF;
+            text-decoration: underline;
+        }
+
+        #footright a:hover {
+            color: #FFF;
+            text-decoration: none;
+        }
+
+        .footleft {
+            padding-top: 22px;
+        }
+
+        .clearfix {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post" action="./opt_rc_wyqj.aspx?key=DBT4skyvpoyBH88n&amp;fid=55" id="form1">
+        <div class="aspNetHidden">
+            <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+            <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
+                value="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" />
+        </div>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            var theForm = document.forms['form1'];
+            if (!theForm) {
+                theForm = document.form1;
+            }
+            function __doPostBack(eventTarget, eventArgument) {
+                if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                    theForm.__EVENTTARGET.value = eventTarget;
+                    theForm.__EVENTARGUMENT.value = eventArgument;
+                    theForm.submit();
+                }
+            }
+//]]>
+        </script>
+
+
+        <div class="container">
+            <div class="h_menu">
+                <nav>
+                    <ul class="menu list-unstyled">
+                        <li><a href="\Default.aspx">首页</a>
+                            <ul>
+                                <li><a href="\showcontent.aspx?fid=0000">系统公告</a></li>
+                                <li><a href="\showcontent.aspx?fid=0099">帮助指南</a></li>
+                                <li><a href="https://ssp.scnu.edu.cn/showcontent.aspx?pid=42">联系方式</a></li>
+                                <li><a href="https://ssp.scnu.edu.cn/showcontent.aspx?pid=41">系统简介</a></li>
+                                <li><a href="\ShowStatistics.aspx">数据统计</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="\opt_xx_myapps.aspx?key=DBT4skyvpoyBH88n&fid=7">个人信息</a>
+                            <ul>
+                                <li class="bg0"><a href="opt_xx_myapps.aspx?key=DBT4skyvpoyBH88n&fid=7">我的应用</a></li>
+                                <li class="bg1"><a href="opt_xx_xxhz.aspx?key=DBT4skyvpoyBH88n&fid=7">信息汇总</a></li>
+                                <li class="bg2"><a href="opt_xx_zzgx.aspx?key=DBT4skyvpoyBH88n&fid=7">我的证照</a></li>
+                                <li class="bg3"><a href="opt_xx_jbxx.aspx?key=DBT4skyvpoyBH88n&fid=7">基本信息</a></li>
+                                <li class="bg4"><a href="opt_xx_jtxx.aspx?key=DBT4skyvpoyBH88n&fid=7">家庭信息</a></li>
+                                <li class="bg0"><a href="opt_xx_zhwh.aspx?key=DBT4skyvpoyBH88n&fid=7">账号维护</a></li>
+                                <li class="bg1"><a href="opt_xx_mylogs.aspx?key=DBT4skyvpoyBH88n&fid=7">我的日志</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="\opt_xx_myapps.aspx?key=DBT4skyvpoyBH88n&fid=8">奖学助学</a>
+                            <ul>
+                                <li class="bg0"><a href="opt_jz_jzsq.aspx?key=DBT4skyvpoyBH88n&fid=8">奖助申请</a></li>
+                                <li class="bg1"><a href="opt_jz_jzgs.aspx?key=DBT4skyvpoyBH88n&fid=8">奖助公示</a></li>
+                                <li class="bg2"><a href="opt_jz_cxjsq.aspx?key=DBT4skyvpoyBH88n&fid=8">成果登记与评奖</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="\opt_xx_myapps.aspx?key=DBT4skyvpoyBH88n&fid=55">疫情防控</a>
+                            <ul>
+                                <li class="bg0"><a href="opt_yq_lxlxdj.aspx?key=DBT4skyvpoyBH88n&fid=55">离校留校登记</a></li>
+                                <li class="bg1"><a href="opt_yq_jkdk.aspx?key=DBT4skyvpoyBH88n&fid=55">健康打卡</a></li>
+                                <li class="bg2"><a href="opt_yq_jkdkcx.aspx?key=DBT4skyvpoyBH88n&fid=55">近日打卡查询</a></li>
+                                <li class="bg3"><a href="opt_yq_fxsq.aspx?key=DBT4skyvpoyBH88n&fid=55">返校申请</a></li>
+                                <li class="bg4 selected sel act"><a
+                                        href="opt_rc_wyqj.aspx?key=DBT4skyvpoyBH88n&fid=55">学生请假</a></li>
+                                <li class="bg0"><a href="opt_yq_cljxsq.aspx?key=DBT4skyvpoyBH88n&fid=55">车辆进校申请</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="\opt_xx_myapps.aspx?key=DBT4skyvpoyBH88n&fid=129">就业服务</a>
+                            <ul>
+                                <li class="bg0"><a href="opt_jy_daqx.aspx?key=DBT4skyvpoyBH88n&fid=129">档案去向</a></li>
+                                <li class="bg1"><a href="opt_lx_wylx.aspx?key=DBT4skyvpoyBH88n&fid=129">我要离校</a></li>
+                                <li class="bg2"><a href="opt_jy_gopay.aspx?key=DBT4skyvpoyBH88n&fid=129">离宿缴费</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="\opt_xx_myapps.aspx?key=DBT4skyvpoyBH88n&fid=104">智慧团建</a>
+                            <ul>
+                                <li class="bg0"><a href="opt_tw_kjxmsb.aspx?key=DBT4skyvpoyBH88n&fid=104">科技项目申报</a>
+                                </li>
+                                <li class="bg1"><a href="opt_tw_stdj.aspx?key=DBT4skyvpoyBH88n&fid=104">社团申报</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="\opt_xx_myapps.aspx?key=DBT4skyvpoyBH88n&fid=14">日常管理</a>
+                            <ul>
+                                <li class="bg0"><a href="opt_qt_lxdj.aspx?key=DBT4skyvpoyBH88n&fid=14">留校登记</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="\opt_xx_myapps.aspx?key=DBT4skyvpoyBH88n&fid=130">查询统计</a>
+                            <ul>
+
+                            </ul>
+                        </li>
+                        <li><a href="#">更多服务</a>
+                            <ul>
+                                <li><a href="\opt_xx_myapps.aspx?key=DBT4skyvpoyBH88n&fid=5">系统管理</a></li>
+                                <li><a href="\opt_xx_myapps.aspx?key=DBT4skyvpoyBH88n&fid=128">宿舍服务</a></li>
+                                <li><a href="\opt_xx_myapps.aspx?key=DBT4skyvpoyBH88n&fid=106">医保服务</a></li>
+                                <li><a href="\opt_xx_myapps.aspx?key=DBT4skyvpoyBH88n&fid=107">勤工俭学</a></li>
+                                <li><a href="\opt_xx_myapps.aspx?key=DBT4skyvpoyBH88n&fid=34">交互平台</a></li>
+                                <li><a href="\opt_xx_myapps.aspx?key=DBT4skyvpoyBH88n&fid=133">学生发展工作室</a></li>
+                                <li><a href="\opt_xx_myapps.aspx?key=DBT4skyvpoyBH88n&fid=179">办事大厅管理</a></li>
+                            </ul>
+                        </li>
+                        <li class="login_info">
+                            <a href="#">
+                                <img src="https://ssp.scnu.edu.cn/images/user_icon.png" />
+                                <span id="logmsg">20172005115 学生</span></a>
+
+                            <a id="gologout" class="submit bg2"
+                                href="javascript:__doPostBack(&#39;ctl00$gologout&#39;,&#39;&#39;)">退出登录</a>
+                            <!-- <a onclick="return confirm(&#39;确定要注销您的登录状态吗？&#39;);" id="gologout" class="submit bg2"
+                                href="javascript:__doPostBack(&#39;ctl00$gologout&#39;,&#39;&#39;)">退出登录</a> -->
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div id="mp_main" class="mp_main">
+
+
+
+            </div>
+
+            <div id="mp_slave" class="mp_slave">
+
+                <div class="mainleft">
+                    <div class="grid_sys bdorange">
+                        <img src="https://ssp.scnu.edu.cn/images/logo.png" alt="" class="logo logined_logo" />
+                        <h1 class="scnu_service logined_service"><img src="https://ssp.scnu.edu.cn/images/service.png" alt="学生综合服务平台"
+                                class="service" /></h1>
+                    </div>
+
+
+
+
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="main_content grid3of4">
+                    <div class="leftgrid bdblue">
+
+                        <div class="clearfix"></div>
+
+                        <ul id="left_menu" class="left_menu">
+                            <li class="0"><a href="opt_yq_lxlxdj.aspx?key=DBT4skyvpoyBH88n&fid=55">离校留校登记</a></li>
+                            <li class="1"><a href="opt_yq_jkdk.aspx?key=DBT4skyvpoyBH88n&fid=55">健康打卡</a></li>
+                            <li class="2"><a href="opt_yq_jkdkcx.aspx?key=DBT4skyvpoyBH88n&fid=55">近日打卡查询</a></li>
+                            <li class="3"><a href="opt_yq_fxsq.aspx?key=DBT4skyvpoyBH88n&fid=55">返校申请</a></li>
+                            <li class="4 selected sel act"><a
+                                    href="opt_rc_wyqj.aspx?key=DBT4skyvpoyBH88n&fid=55">学生请假</a></li>
+                            <li class="0"><a href="opt_yq_cljxsq.aspx?key=DBT4skyvpoyBH88n&fid=55">车辆进校申请</a></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="main_right">
+                        <div class="rightgrid">
+
+
+                            <div id="right_expand" class="right_expand">
+
+                                <span id="cph_r_expand_msg_panel" class="msgstr"></span>
+
+                                <div class="linkpanel">
+                                    <a id="cph_r_expand_add"
+                                        href="javascript:__doPostBack(&#39;ctl00$cph_r_expand$add&#39;,&#39;&#39;)">新的假条</a>
+                                    <a id="cph_r_expand_back"
+                                        href="javascript:__doPostBack(&#39;ctl00$cph_r_expand$back&#39;,&#39;&#39;)">返回列表</a>
+                                </div>
+
+                            </div>
+
+                            <div id="cph_right_right_list" class="right_content">
+                                <div>
+                                    <table cellspacing="0" rules="all" style="border:1" id="cph_right_gv1"
+                                        style="border-collapse:collapse;">
+                                        <tr class="trh">
+                                            <th scope="col">操作</th>
+                                            <th scope="col">编号</th>
+                                            <th scope="col">类型</th>
+                                            <th scope="col">开始时间</th>
+                                            <th scope="col">结束时间</th>
+                                            <th scope="col">请假课程</th>
+                                            <th scope="col">请假理由</th>
+                                            <th scope="col">是否准假</th>
+                                            <th scope="col">是否销假</th>
+                                            <th scope="col">假条状态</th>
+                                        </tr>
+                                        <tr class="tr1">
+                                            <td>
+                                                <a id="cph_right_gv1_Delete_0"
+                                                    href="javascript:__doPostBack(&#39;ctl00$cph_right$gv1$ctl02$Delete&#39;,&#39;&#39;)">删除</a>
+                                                <!-- <a onclick="return confirm(&#39;注意：只能删除[未审批]的记录\n\n您确定要删除这一项吗？&#39;);"
+                                                    id="cph_right_gv1_Delete_0"
+                                                    href="javascript:__doPostBack(&#39;ctl00$cph_right$gv1$ctl02$Delete&#39;,&#39;&#39;)">删除</a> -->
+                                            </td>
+                                            <td>38344</td>
+                                            <td>事假</td>
+                                            <td>2020/9/29 6:00:00</td>
+                                            <td>2020/9/30 6:00:00</td>
+                                            <td>请假期间无课程</td>
+                                            <td>家里人身体有恙，回去照看一下，顺便一起过中秋。希望能被老师批准。</td>
+                                            <td><span class="aspNetDisabled" title="是否准假"><input
+                                                        id="cph_right_gv1_ctl00_0" type="checkbox"
+                                                        name="ctl00$cph_right$gv1$ctl02$ctl00" checked="checked"
+                                                        disabled="disabled" /></span></td>
+                                            <td><span class="aspNetDisabled" title="是否销假"><input
+                                                        id="cph_right_gv1_ctl01_0" type="checkbox"
+                                                        name="ctl00$cph_right$gv1$ctl02$ctl01"
+                                                        disabled="disabled" /></span></td>
+                                            <td>已审核</td>
+                                        </tr>
+                                        <tr class="tr0">
+                                            <td>
+                                                <!-- <a onclick="return confirm(&#39;注意：只能删除[未审批]的记录\n\n您确定要删除这一项吗？&#39;);"
+                                                    id="cph_right_gv1_Delete_1"
+                                                    href="javascript:__doPostBack(&#39;ctl00$cph_right$gv1$ctl03$Delete&#39;,&#39;&#39;)">删除</a> -->
+                                                <a id="cph_right_gv1_Delete_1"
+                                                    href="javascript:__doPostBack(&#39;ctl00$cph_right$gv1$ctl03$Delete&#39;,&#39;&#39;)">删除</a>
+                                            </td>
+                                            <td>50524</td>
+                                            <td>事假</td>
+                                            <td>2020/9/27 16:00:00</td>
+                                            <td>2020/9/27 22:00:00</td>
+                                            <td>&nbsp;</td>
+                                            <td>出外购买生活物品，希望能被老师批准。</td>
+                                            <td><span class="aspNetDisabled" title="是否准假"><input
+                                                        id="cph_right_gv1_ctl00_1" type="checkbox"
+                                                        name="ctl00$cph_right$gv1$ctl03$ctl00" checked="checked"
+                                                        disabled="disabled" /></span></td>
+                                            <td><span class="aspNetDisabled" title="是否销假"><input
+                                                        id="cph_right_gv1_ctl01_1" type="checkbox"
+                                                        name="ctl00$cph_right$gv1$ctl03$ctl01"
+                                                        disabled="disabled" /></span></td>
+                                            <td>已审核</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+
+                                <div class="r_bottom">
+                                    <div>共找到 <span id="cph_right_recordcount">14</span> 条记录</div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="clearfix"></div>
+                            <span id="SysErrMsg" class="msgstr"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="copy">
+                <div id="footright">
+                    <div><span id="msg_sysinf">Fx 高校学生综合服务平台 学生工作管理系统 粤ICP备05008875号</span></div>
+                    <div><span id="msg_unitinf">单位联系方式:广州市天河区华南师范大学学生工作处|研究生院</span></div>
+                    <div><span id="msg_copyright">版权所有:华南师范大学 <a href="mailto:15034508@qq.com">唐小煜</a>
+                            登记证:2010SR038042</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aspNetHidden">
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="7E3672E4" />
+            <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION"
+                value="/wEdAC4fmzLXVAgLuqELpTRbWqfaCH7C2ooKcj+hye21epcYt+uzpF1NuXI+aMzZHRv7X2z7lR47oVR23DA/cJCW4TxWSu6ydGHZAZEYcoKbGllcy3W2VneF6AYnxjHngQWNz/3TOEf130ZVZ5f+k2UVd/CjfIfXW3mc7I5lWU2XRwLQiaYIVY4g9gIvd4Vo5P39uBRcuvTuYEbQtVJ9Lju5CtzpVGgHorsNKho+z1vF8dARtNrEuhW8qyNrF2dOYl0YW1klKFHY3eju1ff2uPRc1DPIrBx8gvHMlygVY49GbVwKLzRkEQTksV8dZEnA0rBfSrET75nTX5WjwrZiKr5KANVcqPLiDt0xo+zMRj0ee+oJA5Z5NlOHuw80m9lkTDN1Bb5V8V2sfADKN/Ot0LfvecXyUqcDBbEk5Lxi8cGn3PTBKwHyDTJ1L4aWIxAK/IpbzQm9OVa2Mjm521XuA6aM961pBn07PJXRh3cDyFlhTPVEm29z5FKwEGT4YlJFVWysoadOelRpnB7MkD+TD8nISSbQHavwXnXFN3qZlXoaf2/7G4zrIhdqR2sVj5z+m/nDns9YAJhPP2EWNO5e/oGA8Vl98jzSOghbhNn7F0rInNiuh5dGDZ4K5wCAcAYyytpcdLjrBEDjTxtg/rc9utV83+Y/pboOJOEuq3gDWLH8Hxb3pKd1oHt+lWE7g99IMurEhoZiUncduvk1dCMvUxubJxEbM1+Qf/Xc9gKSQIhu3upHAPsmdk2wJ5ZZ9b6U74nPgim2WJTorgHdMu/QFMgWaJoiGp0kyr76/sOnoeVWXjeE6RlMUY00fCNvOm9NKUs5CD90DywszYziMDxwllCTasl0RNnDy6FG/1Mzn+X48s8kX7FHJNAZ/UxzlhwEdN3NQYt3qQe+O/nzUU3SCs9G1Gn0atXpqRMwONWIuBkTcFfXZ0GJOBzEjRXbPVnOyOwtDRdS6x5Xnhlqu4x9dHmafpTOAn0nOQCLNq3dGQYYBMcxtzGfIc+TXipkiSQjV68yzJI=" />
+        </div>
+    </form>
+</body>
+
+</html>
