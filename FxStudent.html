@@ -1748,8 +1748,8 @@
                 <div class="mainleft">
                     <div class="grid_sys bdorange">
                         <img src="https://ssp.scnu.edu.cn/images/logo.png" alt="" class="logo logined_logo" />
-                        <h1 class="scnu_service logined_service"><img src="https://ssp.scnu.edu.cn/images/service.png" alt="学生综合服务平台"
-                                class="service" /></h1>
+                        <h1 class="scnu_service logined_service"><img src="https://ssp.scnu.edu.cn/images/service.png"
+                                alt="学生综合服务平台" class="service" /></h1>
                     </div>
 
 
@@ -1784,11 +1784,13 @@
 
                                 <span id="cph_r_expand_msg_panel" class="msgstr"></span>
 
-                                <div class="linkpanel" style="color:#fff">
+                                <div class="linkpanel">
                                     <a id="cph_r_expand_add"
-                                        href="javascript:__doPostBack(&#39;ctl00$cph_r_expand$add&#39;,&#39;&#39;)" style="color:white">新的假条</a>
+                                        href="javascript:__doPostBack(&#39;ctl00$cph_r_expand$add&#39;,&#39;&#39;)"
+                                        style="color:white">新的假条</a>
                                     <a id="cph_r_expand_back"
-                                        href="javascript:__doPostBack(&#39;ctl00$cph_r_expand$back&#39;,&#39;&#39;)" style="color:white">返回列表</a>
+                                        href="javascript:__doPostBack(&#39;ctl00$cph_r_expand$back&#39;,&#39;&#39;)"
+                                        style="color:white">返回列表</a>
                                 </div>
 
                             </div>
@@ -1809,63 +1811,14 @@
                                             <th scope="col">是否销假</th>
                                             <th scope="col">假条状态</th>
                                         </tr>
-                                        <tr class="tr1">
-                                            <td>
-                                                <a id="cph_right_gv1_Delete_0"
-                                                    href="javascript:__doPostBack(&#39;ctl00$cph_right$gv1$ctl02$Delete&#39;,&#39;&#39;)">删除</a>
-                                                <!-- <a onclick="return confirm(&#39;注意：只能删除[未审批]的记录\n\n您确定要删除这一项吗？&#39;);"
-                                                    id="cph_right_gv1_Delete_0"
-                                                    href="javascript:__doPostBack(&#39;ctl00$cph_right$gv1$ctl02$Delete&#39;,&#39;&#39;)">删除</a> -->
-                                            </td>
-                                            <td>38344</td>
-                                            <td>事假</td>
-                                            <td>2020/9/29 6:00:00</td>
-                                            <td>2020/9/30 6:00:00</td>
-                                            <td>请假期间无课程</td>
-                                            <td>家里人身体有恙，回去照看一下，顺便一起过中秋。希望能被老师批准。</td>
-                                            <td><span class="aspNetDisabled" title="是否准假"><input
-                                                        id="cph_right_gv1_ctl00_0" type="checkbox"
-                                                        name="ctl00$cph_right$gv1$ctl02$ctl00" checked="checked"
-                                                        disabled="disabled" /></span></td>
-                                            <td><span class="aspNetDisabled" title="是否销假"><input
-                                                        id="cph_right_gv1_ctl01_0" type="checkbox"
-                                                        name="ctl00$cph_right$gv1$ctl02$ctl01"
-                                                        disabled="disabled" /></span></td>
-                                            <td>已审核</td>
-                                        </tr>
-                                        <tr class="tr0">
-                                            <td>
-                                                <!-- <a onclick="return confirm(&#39;注意：只能删除[未审批]的记录\n\n您确定要删除这一项吗？&#39;);"
-                                                    id="cph_right_gv1_Delete_1"
-                                                    href="javascript:__doPostBack(&#39;ctl00$cph_right$gv1$ctl03$Delete&#39;,&#39;&#39;)">删除</a> -->
-                                                <a id="cph_right_gv1_Delete_1"
-                                                    href="javascript:__doPostBack(&#39;ctl00$cph_right$gv1$ctl03$Delete&#39;,&#39;&#39;)">删除</a>
-                                            </td>
-                                            <td>50524</td>
-                                            <td>事假</td>
-                                            <td>2020/9/27 16:00:00</td>
-                                            <td>2020/9/27 22:00:00</td>
-                                            <td>&nbsp;</td>
-                                            <td>出外购买生活物品，希望能被老师批准。</td>
-                                            <td><span class="aspNetDisabled" title="是否准假"><input
-                                                        id="cph_right_gv1_ctl00_1" type="checkbox"
-                                                        name="ctl00$cph_right$gv1$ctl03$ctl00" checked="checked"
-                                                        disabled="disabled" /></span></td>
-                                            <td><span class="aspNetDisabled" title="是否销假"><input
-                                                        id="cph_right_gv1_ctl01_1" type="checkbox"
-                                                        name="ctl00$cph_right$gv1$ctl03$ctl01"
-                                                        disabled="disabled" /></span></td>
-                                            <td>已审核</td>
-                                        </tr>
                                     </table>
                                 </div>
 
 
                                 <div class="r_bottom">
-                                    <div>共找到 <span id="cph_right_recordcount">14</span> 条记录</div>
+                                    <div>共找到 <span id="cph_right_recordcount">20</span> 条记录</div>
                                 </div>
                             </div>
-
 
 
 
@@ -1900,5 +1853,47 @@
         </div>
     </form>
 </body>
+<script>
+    window.onload = function () {
+        createPermit();
+    }
+
+    var createPermit = function () {
+        var permitNum = 20;
+        var excuses = ["购物", "买东西", "出去吃饭"];
+        var currentDay = new Date().toLocaleDateString();
+        var table = document.getElementById("cph_right_gv1");
+        var addDate = new Date().getTime();
+        var index = 23189;
+        for (let i = 0; i < 20; i++) {
+            let endDay = (new Date(addDate)).toLocaleDateString();
+            addDate =addDate- 24*60*60*1000*6;
+            let startDay = (new Date(addDate)).toLocaleDateString();
+            var tradd = table.insertRow(1)
+            tradd.innerHTML = `
+         <td>
+            <a id="cph_right_gv1_Delete_0" href="javascript:__doPostBack(&#39;ctl00$cph_right$gv1$ctl02$Delete&#39;,&#39;&#39;)">删除</a>
+         </td>
+         <td>`+index+`</td>
+         <td>事假</td>
+         <td>`+startDay+` 6:00:00</td>
+         <td>`+endDay+` 22:00:00</td>
+         <td></td>
+         <td>`+ excuses[Math.floor(Math.random() * 3)] + `</td>
+         <td><span class="aspNetDisabled" title="是否准假">
+            <input id="cph_right_gv1_ctl00_0" type="checkbox"
+                  name="ctl00$cph_right$gv1$ctl02$ctl00" checked="checked"
+                  disabled="disabled" />
+         </span></td>
+         <td><span class="aspNetDisabled" title="是否销假"><input
+                id="cph_right_gv1_ctl01_0" type="checkbox"
+                name="ctl00$cph_right$gv1$ctl02$ctl01"
+                disabled="disabled" /></span></td>
+         <td>已审核</td>
+         `
+         index=index-Math.floor(Math.random() * 1000)
+        }
+    }
+</script>
 
 </html>
